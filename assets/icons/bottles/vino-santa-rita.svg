@@ -1,0 +1,8 @@
+<svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="88" y="16" width="24" height="26" fill="#3a0d1c"/>
+  <path d="M82 42 L78 70 Q70 82 70 110 L70 280 Q70 296 86 296 L114 296 Q130 296 130 280 L130 110 Q130 82 122 70 L118 42 Z" fill="#3a0d1c"/>
+  <ellipse cx="100" cy="70" rx="18" ry="10" fill="#3a0d1c"/>
+  <rect x="76" y="150" width="48" height="86" rx="3" fill="#f4ece2"/>
+  <text x="100" y="182" font-family="Georgia, serif" font-size="12.5" fill="#3a0d1c" text-anchor="middle" font-weight="700">SANTA RITA</text>
+  <text x="100" y="200" font-family="Georgia, serif" font-size="9" fill="#3a0d1c" text-anchor="middle" opacity="0.85">CABERNET</text>
+</svg>

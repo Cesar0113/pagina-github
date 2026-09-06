@@ -1,0 +1,11 @@
+<svg viewBox="0 0 260 70" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(4,8)">
+    <path d="M20 4 L34 4 L30 34 Q30 46 27 50 L27 58 L33 58 L33 62 L11 62 L11 58 L17 58 L17 50 Q14 46 14 34 Z" fill="#5EC8E0"/>
+    <path d="M20 4 L34 4 L32.5 16 L21.5 16 Z" fill="#BEEBFA"/>
+    <circle cx="16" cy="24" r="2" fill="#eaf9ff"/>
+    <circle cx="27" cy="30" r="1.6" fill="#eaf9ff"/>
+    <circle cx="21" cy="40" r="1.6" fill="#eaf9ff"/>
+  </g>
+  <text x="52" y="32" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700" fill="#F5F9FC" letter-spacing="0.5">PUNTO FRÍO</text>
+  <text x="52" y="50" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="500" fill="#D98A33" letter-spacing="3">LICORERA</text>
+</svg>

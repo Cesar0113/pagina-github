@@ -1,0 +1,7 @@
+<svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+  <path d="M55 90 L145 90 L155 300 Q155 310 145 310 L55 310 Q45 310 45 300 Z" fill="#e0a13a"/>
+  <path d="M55 90 L60 60 Q100 40 140 60 L145 90 Z" fill="#c97a2b"/>
+  <rect x="60" y="150" width="80" height="90" rx="6" fill="#fff6e6"/>
+  <text x="100" y="185" font-family="'Space Grotesk', sans-serif" font-size="16" fill="#7a4a1f" text-anchor="middle" font-weight="700">SNACK</text>
+  <text x="100" y="205" font-family="'Space Grotesk', sans-serif" font-size="10" fill="#a5601f" text-anchor="middle">CRUJIENTE</text>
+</svg>

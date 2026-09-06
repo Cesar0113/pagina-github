@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Licorera Punto Frío | Licores a domicilio</title>
+<meta name="description" content="Licorera Punto Frío: cervezas, ron, whisky, aguardiente, tequila, vinos y más. Pide fácil, recibe rápido.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Fraunces:ital@1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Barra superior -->
+<div class="topbar">
+  <div class="topbar-inner container">
+    <span class="topbar-spacer"></span>
+    <span class="topbar-msg">BIENVENIDOS A <strong>LICORERA PUNTO FRÍO</strong> · Domicilios en el sector · Pide por WhatsApp</span>
+    <div class="topbar-social">
+      <a href="https://www.facebook.com/profile.php?id=100075878362280" target="_blank" rel="noopener" aria-label="Facebook" class="social-chip">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.6 1.6-1.6h1.7V3.3C16.5 3.2 15.4 3 14.2 3c-2.5 0-4.3 1.5-4.3 4.4v2.4H7.2v3.2h2.7v8h3.6z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/csar_115/" target="_blank" rel="noopener" aria-label="Instagram" class="social-chip">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 1. INICIO: logo + inicio, buscador, favoritos, carrito, contactos, perfil admin ============ -->
+<header class="site-header">
+  <div class="nav-row">
+    <a class="brand" href="#home" aria-label="Licorera Punto Frío - Inicio">
+      <img src="assets/icons/logo.svg" alt="Licorera Punto Frío">
+    </a>
+
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">☰</button>
+
+    <ul class="main-nav" id="mainNav">
+      <li><a href="#home">Inicio</a></li>
+
+      <li>
+        <button type="button" class="nav-toggle">Cerveza <span class="chev">▾</span></button>
+        <div class="dropdown">
+          <a href="#tienda" data-goto-brand="Águila">Águila</a>
+          <a href="#tienda" data-goto-brand="Poker">Poker</a>
+          <a href="#tienda" data-goto-brand="Club Colombia">Club Colombia</a>
+          <a href="#tienda" data-goto-brand="Corona">Corona</a>
+          <a href="#tienda" data-goto-brand="Budweiser">Budweiser</a>
+          <a href="#tienda" data-goto-brand="Heineken">Heineken</a>
+          <a href="#tienda" data-goto-brand="Stella Artois">Stella Artois</a>
+          <a href="#tienda" data-goto-brand="Urbana">Urbana Blonde Ale</a>
+          <a href="#tienda" data-goto-brand="Andina">Andina</a>
+          <a href="#tienda" data-goto-brand="Blue Ribbon">Blue Ribbon</a>
+          <a href="#tienda" data-goto-brand="Gallo">Gallo</a>
+          <a href="#tienda" data-goto-category="cerveza" style="border-top:1px solid var(--line);margin-top:4px;padding-top:12px;font-weight:700;">Ver todas las cervezas</a>
+        </div>
+      </li>
+
+      <li>
+        <button type="button" class="nav-toggle">Licores <span class="chev">▾</span></button>
+        <div class="dropdown">
+          <a href="#tienda" data-goto-category="ron">Ron</a>
+          <a href="#tienda" data-goto-category="whisky">Whiskys</a>
+          <a href="#tienda" data-goto-category="aguardiente">Aguardientes</a>
+          <a href="#tienda" data-goto-category="tequila">Tequila</a>
+          <a href="#tienda" data-goto-category="vino">Vinos</a>
+        </div>
+      </li>
+
+      <li>
+        <button type="button" class="nav-toggle">Otros <span class="chev">▾</span></button>
+        <div class="dropdown">
+          <a href="#tienda" data-goto-category="michelada">Micheladas</a>
+          <a href="#tienda" data-goto-category="mecato">Mecatos</a>
+          <a href="#tienda" data-goto-category="cigarro">Cigarros</a>
+        </div>
+      </li>
+
+      <li><a href="#contact">Contáctanos</a></li>
+    </ul>
+
+    <div class="nav-tools">
+      <button type="button" class="tool-btn mobile-search-btn" id="mobileSearchBtn" aria-label="Buscar">🔍</button>
+      <div class="search-wrap" id="searchWrap">
+        <input type="text" id="searchInput" placeholder="Buscar licor, marca...">
+        <button type="button" aria-label="Buscar">🔍</button>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
+      <button type="button" class="tool-btn" id="favToggleBtn" aria-label="Favoritos" title="Favoritos">
+        ♡ <span class="tool-badge" id="favCount">0</span>
+      </button>
+
+      <button type="button" class="tool-btn" id="cartToggleBtn" aria-label="Carrito" title="Carrito de compras">
+        🛍 <span class="tool-badge" id="cartCount">0</span>
+      </button>
+
+      <a class="tool-btn" href="login.html" aria-label="Perfil admin" title="Acceso administrador">👤</a>
+    </div>
+  </div>
+
+  <!-- Barra de categorías eliminada a pedido: el acceso a categorías queda
+       en el menú "Licores" y "Otros" del header, y en los botones de filtro
+       dentro de la sección de tienda. -->
+
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-products" aria-hidden="true">
+    <img class="hero-product hp-1" src="assets/imgs/r3.jpg" alt="">
+    <img class="hero-product hp-2" src="assets/imgs/c10.jpg" alt="">
+    <img class="hero-product hp-3" src="assets/imgs/ag1.jpg" alt="">
+    <img class="hero-product hp-4" src="assets/imgs/r1.jpg" alt="">
+    <img class="hero-product hp-5" src="assets/imgs/c1.jpg" alt="">
+  </div>
+
+  <svg class="hero-ice-svg" style="top:12%;right:8%;width:70px;" viewBox="0 0 60 60"><rect x="4" y="4" width="52" height="52" rx="8" fill="none" stroke="#BEEBFA" stroke-width="2"/><line x1="4" y1="24" x2="56" y2="20" stroke="#BEEBFA" stroke-width="1.5"/><line x1="20" y1="4" x2="16" y2="56" stroke="#BEEBFA" stroke-width="1.5"/></svg>
+  <svg class="hero-ice-svg" style="top:66%;right:14%;width:36px;" viewBox="0 0 60 60"><rect x="4" y="4" width="52" height="52" rx="8" fill="none" stroke="#5EC8E0" stroke-width="2"/><line x1="4" y1="30" x2="56" y2="26" stroke="#5EC8E0" stroke-width="1.5"/></svg>
+  <svg class="hero-ice-svg" style="top:8%;right:38%;width:24px;" viewBox="0 0 60 60"><rect x="4" y="4" width="52" height="52" rx="8" fill="none" stroke="#BEEBFA" stroke-width="2"/></svg>
+  <svg class="hero-ice-svg" style="top:78%;right:38%;width:20px;" viewBox="0 0 60 60"><rect x="4" y="4" width="52" height="52" rx="8" fill="none" stroke="#BEEBFA" stroke-width="2"/></svg>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">Frío de verdad, sabor de verdad</span>
+    <h1>Tu licor favorito, <span>bien frío</span>, en la puerta de tu casa</h1>
+    <p>En Licorera Punto Frío encuentras cervezas, ron, whisky, aguardiente, tequila y vinos con la mejor nevera de la zona. Pide en segundos y recibe rápido.</p>
+    <div class="hero-actions">
+      <a href="#tienda" class="btn btn-amber">Ver catálogo</a>
+      <a href="https://wa.me/573002192460" target="_blank" class="btn btn-outline">Pedir por WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-frost-drop" aria-hidden="true"></div>
+</section>
+
+<!-- ============ 3. Banner de imagen aleatoria destacada ============ -->
+<section class="section" style="padding-top:40px;padding-bottom:30px;">
+  <div class="container">
+    <div class="promo-banner" id="promoBanner">
+      <!-- Contenido generado dinámicamente por js/main.js (carrusel de destacados) -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. Tienda: filtros por botones + productos con favoritos, ml, precio, comprar ============ -->
+<section class="section section-liquor-bg bg-tienda" id="tienda">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">¡Los favoritos de todos!</span>
+      <h2>Descubre los licores más vendidos</h2>
+      <p>Encuentra las mejores marcas y sabores para cada ocasión. Calidad, tradición y variedad al alcance de tu copa.</p>
+    </div>
+
+    <div class="filter-pills" id="filterPills">
+      <button type="button" class="filter-pill active" data-filter="todos">Todo</button>
+      <button type="button" class="filter-pill" data-filter="cerveza">Cerveza</button>
+      <button type="button" class="filter-pill" data-filter="ron">Ron</button>
+      <button type="button" class="filter-pill" data-filter="whisky">Whisky</button>
+      <button type="button" class="filter-pill" data-filter="aguardiente">Aguardiente</button>
+      <button type="button" class="filter-pill" data-filter="tequila">Tequila</button>
+      <button type="button" class="filter-pill" data-filter="vino">Vinos</button>
+      <div class="filter-pill-dropdown" id="otrosDropdownWrap">
+        <button type="button" class="filter-pill" id="otrosFilterBtn">Otros <span class="chev">▾</span></button>
+        <div class="filter-dropdown-menu" id="otrosDropdownMenu"></div>
+      </div>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ============ 5. Sección de marcas (comercializamos las mejores marcas) ============ -->
+<section class="brand-strip">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Licorera Punto Frío</span>
+      <h2>Comercializamos las mejores marcas</h2>
+      <p>Desde clásicos hasta etiquetas premium. Calidad garantizada en cada botella.</p>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack">
+      <div class="brand-card">Old Parr</div>
+      <div class="brand-card">Buchanan's</div>
+      <div class="brand-card">José Cuervo</div>
+      <div class="brand-card">Havana Club</div>
+      <div class="brand-card">Chivas Regal</div>
+      <div class="brand-card">Don Julio</div>
+      <div class="brand-card">Casillero del Diablo</div>
+      <div class="brand-card">Viejo de Caldas</div>
+      <!-- duplicado para loop continuo -->
+      <div class="brand-card">Old Parr</div>
+      <div class="brand-card">Buchanan's</div>
+      <div class="brand-card">José Cuervo</div>
+      <div class="brand-card">Havana Club</div>
+      <div class="brand-card">Chivas Regal</div>
+      <div class="brand-card">Don Julio</div>
+      <div class="brand-card">Casillero del Diablo</div>
+      <div class="brand-card">Viejo de Caldas</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Instalaciones ============ -->
+<section class="section bg-alt section-liquor-bg bg-instalaciones" id="instalaciones">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Nuestras instalaciones</span>
+      <h2>Nuestros productos e instalaciones</h2>
+    </div>
+    <div class="cards-3">
+      <div class="info-card">
+        <img src="assets/imgs/l1.jpg" alt="Variedad de licores">
+        <div class="info-body">
+          <h4>Nuestra variedad de licores</h4>
+          <p>Ofrecemos una cuidadosa selección de licores nacionales e internacionales para todos los gustos.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <img src="assets/imgs/d.jpg" alt="Instalaciones de la tienda">
+        <div class="info-body">
+          <h4>Nuestras instalaciones</h4>
+          <p>Un ambiente acogedor y moderno, donde podrás explorar nuestra selección con comodidad.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <img src="assets/imgs/l.jpg" alt="Licores de calidad">
+        <div class="info-body">
+          <h4>Licores de calidad</h4>
+          <p>Mantenemos nuestro inventario actualizado para ofrecerte siempre las mejores opciones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Sobre nosotros ============ -->
+<section class="section section-liquor-bg bg-about" id="about">
+  <div class="container about-grid">
+    <div class="about-text">
+      <span class="eyebrow">Sobre nosotros</span>
+      <h2>Somos Licorera Punto Frío</h2>
+      <p>Negocio dedicado a la venta de bebidas alcohólicas de alta calidad. Ofrecemos una amplia variedad de licores nacionales e importados, con un equipo que brinda asesoramiento personalizado para elegir la bebida adecuada.</p>
+      <p>Además de la venta de licores, ofrecemos servicios adicionales como alquiler de barras móviles y organización de degustaciones. Nos destacamos por nuestro compromiso con la calidad, la variedad y el excelente servicio al cliente.</p>
+    </div>
+    <div class="about-imgs">
+      <img src="assets/imgs/d1.jpg" alt="Instalaciones">
+      <img src="assets/imgs/f1.jpg" alt="Detalle de producto">
+      <img src="assets/imgs/d2.jpg" alt="Local" style="grid-column:1/-1;">
+    </div>
+  </div>
+</section>
+
+<!-- ============ Testimonios ============ -->
+<section class="section bg-alt section-liquor-bg bg-testimonios">
+  <svg class="bottle-divider" viewBox="0 0 1200 500" preserveAspectRatio="xMaxYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <g opacity="0.16" fill="none" stroke="#0B1E33" stroke-width="3">
+      <path d="M1050 60 L1090 60 L1090 100 Q1090 130 1070 150 L1060 160 L1060 380 Q1060 400 1080 400 L1060 400 Q1080 400 1080 380 L1080 160 L1070 150 Q1050 130 1050 100 Z" transform="translate(-30,0) scale(1.3)"/>
+      <ellipse cx="960" cy="330" rx="55" ry="20"/>
+      <path d="M905 330 L905 250 M1015 330 L1015 250"/>
+      <path d="M885 250 Q960 230 1035 250"/>
+    </g>
+  </svg>
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow">Referencias</span>
+      <h2>Lo que dicen nuestros clientes</h2>
+    </div>
+    <div class="testi-grid" id="testiGrid">
+      <div class="testi-card">
+        <div class="testi-head">
+          <img src="assets/imgs/avatar.jpg" alt="">
+          <div><div class="name">John Romero</div><div class="role">Analista de Negocios</div></div>
+        </div>
+        <p>Licorera Punto Frío es mi elección número uno para abastecerme en celebraciones especiales. Su variedad es impresionante y el personal siempre da buenas recomendaciones.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-head">
+          <img src="assets/imgs/avatar-1.jpg" alt="">
+          <div><div class="name">María García</div><div class="role">Ingeniera Electrónica</div></div>
+        </div>
+        <p>Mi lugar favorito para encontrar licores exclusivos y de alta calidad. Las instalaciones son impecables y el ambiente es muy agradable.</p>
+      </div>
+      <div class="testi-card">
+        <div class="testi-head">
+          <img src="assets/imgs/avatar-2.jpg" alt="">
+          <div><div class="name">Miguel Herrera</div><div class="role">Secretario de Salud</div></div>
+        </div>
+        <p>La atención al cliente es excepcional. Siempre me ayudan a encontrar licores que se adaptan a mis gustos y presupuesto.</p>
+      </div>
+    </div>
+
+    <div class="review-form-card">
+      <h3>¿Ya nos compraste? Cuéntanos tu experiencia</h3>
+      <p class="review-form-sub">Tu opinión ayuda a otros clientes a elegir mejor.</p>
+      <div class="review-stars" id="reviewStars">
+        <button type="button" class="star-btn" data-star="1">★</button>
+        <button type="button" class="star-btn" data-star="2">★</button>
+        <button type="button" class="star-btn" data-star="3">★</button>
+        <button type="button" class="star-btn" data-star="4">★</button>
+        <button type="button" class="star-btn" data-star="5">★</button>
+      </div>
+      <input type="text" id="reviewName" placeholder="Tu nombre">
+      <textarea id="reviewComment" placeholder="Cuéntanos qué te pareció nuestro servicio o algún producto..."></textarea>
+      <div class="review-error" id="reviewError"></div>
+      <button type="button" class="btn btn-amber" id="submitReviewBtn">Enviar opinión</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contacto ============ -->
+<section class="section contact-section" id="contact">
+  <div class="contact-glow" aria-hidden="true"></div>
+  <svg class="contact-art" viewBox="0 0 420 520" aria-hidden="true">
+    <g fill="none" stroke="#5EC8E0" stroke-width="2.2" opacity="0.55">
+      <path d="M150 40 L270 40 L270 90 Q270 130 240 155 L225 168 L225 400 Q225 430 255 430 L165 430 Q195 430 195 400 L195 168 L180 155 Q150 130 150 90 Z"/>
+      <line x1="150" y1="75" x2="270" y2="75"/>
+    </g>
+    <g fill="none" stroke="#D98A33" stroke-width="2.2" opacity="0.5">
+      <path d="M175 220 Q210 205 245 220" />
+      <path d="M170 260 Q210 240 250 260" />
+    </g>
+    <circle cx="210" cy="470" r="5" fill="#5EC8E0" opacity="0.6"/>
+  </svg>
+
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow" style="color:#BEEBFA;">Hablemos</span>
+      <h2>Contáctanos</h2>
+      <p class="contact-lead">¿Antojo repentino o pedido para tu evento? Escríbenos, respondemos rápido.</p>
+
+      <div class="contact-cards">
+        <a class="contact-card" href="tel:+573002192460">
+          <span class="ic">📞</span>
+          <div><div class="cc-label">Teléfono</div><div class="cc-value">300 219 2460</div></div>
+        </a>
+        <a class="contact-card" href="https://wa.me/573002192460" target="_blank" rel="noopener">
+          <span class="ic ic-whats">💬</span>
+          <div><div class="cc-label">WhatsApp</div><div class="cc-value">Chatea directo con nosotros</div></div>
+        </a>
+        <a class="contact-card" href="mailto:cesamr113@gmail.com">
+          <span class="ic">✉️</span>
+          <div><div class="cc-label">Correo</div><div class="cc-value">cesamr113@gmail.com</div></div>
+        </a>
+        <a class="contact-card" href="https://maps.google.com/?q=Cra.+15+%2345-30,+Cartagena,+Bol%C3%ADvar" target="_blank" rel="noopener">
+          <span class="ic">📍</span>
+          <div><div class="cc-label">Dirección</div><div class="cc-value">Cra. 15 #45-30, Cartagena, Bolívar</div></div>
+        </a>
+      </div>
+
+      <div class="social-row">
+        <a href="https://www.facebook.com/profile.php?id=100075878362280" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.2h-3.1V7.8c0-.9.3-1.6 1.6-1.6h1.7V3.3C16.5 3.2 15.4 3 14.2 3c-2.5 0-4.3 1.5-4.3 4.4v2.4H7.2v3.2h2.7v8h3.6z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/csar_115/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="https://wa.me/573002192460" target="_blank" rel="noopener" class="social-btn social-btn-whats" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5.1-1.3A10 10 0 1012 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.4.2.5.7 1.8.8 1.9.1.2.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.4.1.6-.1l.6-.7c.2-.3.4-.2.7-.1l1.7.8c.2.1.4.2.5.3.1.2.1.9-.1 1.6z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <form class="form-grid" onsubmit="event.preventDefault(); alert('¡Gracias! Te contactaremos pronto.'); this.reset();">
+      <input type="text" placeholder="Nombre" required>
+      <input type="email" placeholder="Correo electrónico" required>
+      <input type="text" class="full" placeholder="Asunto">
+      <textarea class="full" placeholder="Mensaje" required></textarea>
+      <button type="submit" class="btn btn-amber full">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    &copy; <span id="year"></span> Licorera Punto Frío. Todos los derechos reservados. Venta responsable — prohibida la venta a menores de edad.
+  </div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/573002192460" target="_blank" aria-label="Escríbenos por WhatsApp">
+  <svg viewBox="0 0 32 32" width="28" height="28" fill="#fff"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.8c1.9 1 4 1.6 6.3 1.6 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-2 0-3.9-.5-5.6-1.5l-.4-.2-4.6 1.1 1.2-4.5-.3-.4C4.9 17.5 4.3 15.8 4.3 14 4.3 8.6 9.6 4 16 4c6.4 0 11.7 4.6 11.7 10.9C27.7 21.2 22.4 24.8 16 24.8zm6.3-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.3-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7.1-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.8-1.9-1.1-2.6-.3-.7-.6-.6-.8-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.3 3.4 1.4 3.6c.2.2 2.5 3.9 6.2 5.3 3.7 1.4 3.7.9 4.3.9.7 0 2.1-.8 2.4-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<!-- ============ Modal Carrito ============ -->
+<div class="overlay" id="cartOverlay">
+  <div class="modal">
+    <button class="close-modal" id="closeCartBtn" aria-label="Cerrar">&times;</button>
+    <h3>🛍 Tu pedido</h3>
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="checkout-fields">
+      <p class="checkout-label">Datos para la entrega</p>
+      <div class="checkout-error" id="checkoutError"></div>
+      <input type="text" id="customerName" placeholder="Nombre completo" autocomplete="name">
+      <input type="text" id="customerAddress" placeholder="Dirección de entrega (barrio, calle, número)" autocomplete="street-address">
+      <input type="tel" id="customerPhone" placeholder="Teléfono de contacto" autocomplete="tel">
+    </div>
+
+    <div class="cart-total">Total: $<span id="cartTotal">0</span></div>
+    <div class="cart-actions">
+      <button type="button" class="btn btn-amber" id="sendOrderBtn">💬 Enviar pedido por WhatsApp</button>
+      <a href="javascript:void(0)" class="continue-link" id="continueShoppingBtn">Seguir comprando</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Modal Favoritos ============ -->
+<div class="overlay" id="favOverlay">
+  <div class="modal">
+    <button class="close-modal" id="closeFavBtn" aria-label="Cerrar">&times;</button>
+    <h3>♡ Tus favoritos</h3>
+    <div class="cart-items" id="favItems"></div>
+  </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>

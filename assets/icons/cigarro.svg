@@ -1,0 +1,13 @@
+<svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="45" y="70" width="110" height="150" rx="6" fill="#e6e6e6" stroke="#999" stroke-width="2"/>
+  <rect x="45" y="70" width="110" height="34" fill="#c0392b"/>
+  <text x="100" y="94" font-family="'Space Grotesk', sans-serif" font-size="14" fill="#fff" text-anchor="middle" font-weight="700">CIGARROS</text>
+  <g>
+    <rect x="60" y="120" width="14" height="80" fill="#f2e9d8" stroke="#d8c9a3"/>
+    <rect x="60" y="120" width="14" height="14" fill="#c97a2b"/>
+    <rect x="93" y="120" width="14" height="80" fill="#f2e9d8" stroke="#d8c9a3"/>
+    <rect x="93" y="120" width="14" height="14" fill="#c97a2b"/>
+    <rect x="126" y="120" width="14" height="80" fill="#f2e9d8" stroke="#d8c9a3"/>
+    <rect x="126" y="120" width="14" height="14" fill="#c97a2b"/>
+  </g>
+</svg>

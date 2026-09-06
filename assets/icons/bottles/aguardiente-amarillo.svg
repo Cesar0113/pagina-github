@@ -1,0 +1,7 @@
+<svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+  <rect x="82" y="18" width="36" height="28" rx="5" fill="#3a5169"/>
+  <path d="M75 46 L70 80 Q64 92 64 115 L64 285 Q64 300 80 300 L120 300 Q136 300 136 285 L136 115 Q136 92 130 80 L125 46 Z" fill="#EAF6FC" stroke="#BCD6E6" stroke-width="2"/>
+  <rect x="70" y="150" width="60" height="98" rx="4" fill="#e0a832"/>
+  <text x="100" y="185" font-family="'Space Grotesk', sans-serif" font-size="14" fill="#3a2308" text-anchor="middle" font-weight="700">AMARILLO</text>
+  <text x="100" y="204" font-family="'Space Grotesk', sans-serif" font-size="9.5" fill="#3a2308" text-anchor="middle" opacity="0.9">MANIZALES</text>
+</svg>

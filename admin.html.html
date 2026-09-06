@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel de administración | Licorera Punto Frío</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Fraunces:ital@1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body{
+    background:
+      linear-gradient(180deg, rgba(234,246,252,.93), rgba(234,246,252,.97) 30%, var(--ice-100) 60%),
+      url('assets/imgs/r4.jpg');
+    background-size:auto, cover;
+    background-position:center, center 20%;
+    background-attachment:fixed, fixed;
+    min-height:100vh;
+  }
+  .admin-header{
+    position:relative;overflow:hidden;
+    background:linear-gradient(120deg, var(--ice-950), var(--ice-900));
+    color:#fff;padding:26px 0;
+    box-shadow:0 4px 18px rgba(0,0,0,.2);
+  }
+  .admin-header::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(circle at 85% 10%, rgba(94,200,224,.22), transparent 45%),
+      radial-gradient(circle at 15% 90%, rgba(217,138,51,.14), transparent 40%);
+    pointer-events:none;
+  }
+  .admin-header .row{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;}
+  .admin-header img{height:32px;}
+  .admin-header .title{font-family:var(--font-label);font-style:italic;font-size:20px;}
+  .btn-logout{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25);padding:9px 16px;border-radius:8px;font-size:13.5px;font-weight:600;cursor:pointer;transition:background-color .15s ease;}
+  .btn-logout:hover{background:rgba(255,255,255,.2);}
+
+  .admin-body{padding:44px 0 70px;}
+  .admin-grid{display:grid;grid-template-columns:360px 1fr;gap:26px;align-items:start;}
+  .panel{
+    position:relative;background:rgba(255,255,255,.94);
+    border:1px solid rgba(255,255,255,.7);
+    border-radius:16px;padding:26px;
+    box-shadow:0 16px 34px rgba(11,30,51,.14);
+    backdrop-filter:blur(4px);
+    overflow:hidden;
+  }
+  .panel::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:4px;
+    background:linear-gradient(90deg, var(--cyan), var(--amber));
+  }
+  .panel h3{font-size:18px;color:var(--ice-900);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+
+  /* Panel "Agregar producto": fondo con textura de hielo y burbujas, para
+     que no se vea como una tarjeta blanca plana */
+  .panel-form{
+    background:
+      radial-gradient(circle at 100% 0%, rgba(94,200,224,.16), transparent 55%),
+      radial-gradient(circle at 0% 100%, rgba(217,138,51,.12), transparent 50%),
+      linear-gradient(165deg, rgba(255,255,255,.97), rgba(234,246,252,.9));
+  }
+  .panel-form::after{
+    content:"";position:absolute;bottom:-30px;right:-30px;width:150px;height:150px;
+    border-radius:50%;border:2px solid rgba(94,200,224,.25);pointer-events:none;
+  }
+
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px;}
+  .field input, .field select{
+    width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;
+    transition:border-color .15s ease, box-shadow .15s ease;
+    background:rgba(255,255,255,.85);
+  }
+  .field input:focus, .field select:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(217,138,51,.15);}
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+  /* Subida de imagen */
+  .upload-dropzone{
+    position:relative;border:2px dashed rgba(94,200,224,.5);border-radius:12px;
+    background:rgba(255,255,255,.7);
+    padding:18px;cursor:pointer;text-align:center;
+    transition:border-color .15s ease, background-color .15s ease;
+    min-height:120px;display:flex;align-items:center;justify-content:center;
+  }
+  .upload-dropzone:hover{border-color:var(--amber);background:rgba(255,255,255,.92);}
+  .upload-dropzone.dragover{border-color:var(--amber);background:rgba(217,138,51,.08);}
+  .upload-placeholder{display:flex;flex-direction:column;align-items:center;gap:4px;pointer-events:none;}
+  .upload-icon{font-size:26px;}
+  .upload-text{font-size:14px;font-weight:700;color:var(--ice-900);}
+  .upload-hint{font-size:11.5px;color:#8aa0b0;}
+  .upload-preview{max-width:100%;max-height:150px;border-radius:8px;object-fit:contain;}
+  .btn-remove-img{
+    margin-top:8px;background:none;border:none;color:#B3261E;font-size:12.5px;
+    font-weight:600;cursor:pointer;text-decoration:underline;
+  }
+
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  thead th{text-align:left;padding:10px 8px;color:#7b8994;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.5px;border-bottom:2px solid var(--line);}
+  tbody tr{transition:background-color .12s ease;}
+  tbody tr:nth-child(even){background:rgba(94,200,224,.04);}
+  tbody tr:hover{background:rgba(217,138,51,.07);}
+  tbody td{padding:11px 8px;border-bottom:1px solid #f0f3f5;vertical-align:middle;}
+  .thumb{width:42px;height:42px;object-fit:contain;border-radius:8px;background:var(--ice-100);padding:4px;}
+  .tag-new{background:#E7F6EE;color:var(--success);font-size:11px;font-weight:700;padding:2px 7px;border-radius:10px;margin-left:6px;}
+
+  .cat-badge{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:4px 10px;border-radius:20px;font-size:11.5px;font-weight:700;
+    color:#2a1704;white-space:nowrap;
+  }
+  .cat-badge.b-cerveza{background:linear-gradient(120deg,#FFE6A6,#F0C878);}
+  .cat-badge.b-ron{background:linear-gradient(120deg,#FFDFB0,#C98F52);color:#3a2308;}
+  .cat-badge.b-whisky{background:linear-gradient(120deg,#F0C99A,#B5691C);color:#fff;}
+  .cat-badge.b-aguardiente{background:linear-gradient(120deg,#D5F1FA,#9FDCEF);color:#0B4C63;}
+  .cat-badge.b-tequila{background:linear-gradient(120deg,#E7F2C4,#B8D178);color:#3d4a17;}
+  .cat-badge.b-vino{background:linear-gradient(120deg,#F0C9D1,#A94E60);color:#fff;}
+  .cat-badge.b-otros{background:linear-gradient(120deg,#DCE8EF,#A9C6D6);color:#0B1E33;}
+
+  .btn-delete{
+    background:#FDEBEC;color:#B3261E;border:none;padding:7px 12px;border-radius:7px;
+    font-size:12.5px;font-weight:700;cursor:pointer;transition:background-color .15s ease, transform .15s ease;
+  }
+  .btn-delete:hover{background:#F8D3D5;transform:translateY(-1px);}
+  .table-wrap{overflow-x:auto;}
+  .table-head-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
+  .btn-reset{background:none;border:1.5px solid var(--line);padding:8px 14px;border-radius:8px;font-size:13px;color:#576573;font-weight:600;cursor:pointer;transition:border-color .15s ease, color .15s ease;}
+  .btn-reset:hover{border-color:var(--amber-dark);color:var(--amber-dark);}
+
+  .btn-cancel-edit{
+    display:block;width:100%;text-align:center;margin-top:10px;
+    background:none;border:none;color:#7b8994;font-size:13px;font-weight:600;
+    cursor:pointer;text-decoration:underline;
+  }
+  .btn-cancel-edit:hover{color:var(--ice-900);}
+  .row-actions{display:flex;gap:6px;}
+  .btn-edit{
+    background:#E8F3FB;color:#1a5f8a;border:none;padding:7px 12px;border-radius:7px;
+    font-size:12.5px;font-weight:700;cursor:pointer;transition:background-color .15s ease, transform .15s ease;
+  }
+  .btn-edit:hover{background:#CFE7F5;transform:translateY(-1px);}
+  #formTitle{transition:color .15s ease;}
+  .editing-mode{border:2px solid var(--amber) !important;}
+
+  @media (max-width: 900px){.admin-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header class="admin-header">
+  <div class="container row">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="assets/icons/logo.svg" alt="Licorera Punto Frío">
+      <span class="title">Panel de administración</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <a href="index.html" style="color:#BEEBFA;font-size:13.5px;">Ver tienda</a>
+      <button type="button" class="btn-logout" id="logoutBtn">Cerrar sesión</button>
+    </div>
+  </div>
+</header>
+
+<div class="admin-body">
+  <div class="container admin-grid">
+
+    <div class="panel panel-form">
+      <h3 id="formTitle">🧊 Agregar producto</h3>
+      <form id="addProductForm">
+        <input type="hidden" id="editingId" value="">
+        <div class="field">
+          <label for="prodName">Nombre del producto</label>
+          <input type="text" id="prodName" placeholder="Ej: Ron Zacapa 23 Años" required>
+        </div>
+        <div class="two-col">
+          <div class="field">
+            <label for="prodCategory">Categoría</label>
+            <select id="prodCategory" required>
+              <option value="" disabled selected>Elegir...</option>
+              <option value="cerveza">Cerveza</option>
+              <option value="ron">Ron</option>
+              <option value="whisky">Whisky</option>
+              <option value="aguardiente">Aguardiente</option>
+              <option value="tequila">Tequila</option>
+              <option value="vino">Vino</option>
+              <option value="otros">Otros</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="prodMl">Mililitros (opcional)</label>
+            <input type="number" id="prodMl" placeholder="750">
+          </div>
+        </div>
+        <div class="field" id="subCategoryWrap" style="display:none;">
+          <label for="prodSub">Subcategoría (Otros)</label>
+          <select id="prodSub">
+            <option value="michelada">Michelada</option>
+            <option value="mecato">Mecato</option>
+            <option value="cigarro">Cigarro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="prodPrice">Precio (COP)</label>
+          <input type="number" id="prodPrice" placeholder="45000" required>
+        </div>
+        <div class="field">
+          <label>Foto del producto (opcional)</label>
+          <div class="upload-dropzone" id="uploadDropzone">
+            <img id="imgPreview" class="upload-preview" style="display:none;" alt="Vista previa">
+            <div id="uploadPlaceholder" class="upload-placeholder">
+              <span class="upload-icon">📷</span>
+              <span class="upload-text">Subir imagen</span>
+              <span class="upload-hint">JPG o PNG · se ajusta automáticamente</span>
+            </div>
+            <input type="file" id="prodImgFile" accept="image/*" hidden>
+          </div>
+          <button type="button" class="btn-remove-img" id="removeImgBtn" style="display:none;">Quitar imagen</button>
+        </div>
+        <div class="form-btn-row">
+          <button type="submit" class="btn btn-amber" id="formSubmitBtn" style="width:100%;justify-content:center;">+ Agregar producto</button>
+        </div>
+        <button type="button" class="btn-cancel-edit" id="cancelEditBtn" style="display:none;">Cancelar edición</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <div class="table-head-row">
+        <h3 style="margin:0;">🍾 Catálogo (<span id="productCount">0</span> productos)</h3>
+        <button type="button" class="btn-reset" id="resetCatalogBtn">Restablecer catálogo</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th></th><th>Nombre</th><th>Categoría</th><th>ML</th><th>Precio</th><th></th></tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
