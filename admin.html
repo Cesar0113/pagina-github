@@ -239,7 +239,17 @@
 
   </div>
 </div>
+<!-- Conexión con Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = "https://lbcpsngmuxbtbtqrphwk.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_5595vlf5kRzzoH2AlKNcQQ_p_wDfdJ8";
 
+    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  </script>
+
+</body>
+</html>
 <script src="js/products.js"></script>
 <script src="js/admin.js"></script>
 </body>
